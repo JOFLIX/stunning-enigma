@@ -1,8 +1,8 @@
 # -*- coding:utf-8 -*-
 from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, login_required, current_user
-
-from ..email import send_mail
+from ..email import mail_message
+# from ..email import send_mail
 from . import auth
 from .. import db
 from ..models import User
@@ -74,6 +74,8 @@ def unconfirmed():
 @login_required
 def resend_email():
     token = current_user.generate_confirm_token()
-    send_mail(current_user.email, u'Confirm your account', 'confirm', user=current_user, token=token)
+    mail_message(current_user.email, u"confirm","email/confirm",user=current_user,token=token)
+
+    # mail_message(current_user.email, u'Confirm your account', 'confirm', user=current_user, token=token)
     flash(u'A new email has been sent to your email address')
     return redirect(url_for('main.index'))

@@ -39,8 +39,8 @@ def register():
         db.session.commit()
         User.add_self_follows()           # Add yourself as your own concern
         token = user.generate_confirm_token()                            # Generate a token
-        send_mail(user.email, u'Please confirm your account number', 'confirm', user=user, token=token)   # send email
-        flash(u'An email has been sent to your email address')
+        send_mail(user.email, u'Please confirm your account', 'confirm', user=user, token=token) # Send mail
+        flash (u' has a message sent to your mailbox')
         return redirect(url_for('auth.login'))    # This step has been a problem, can not be redirected, jump directly to the following
     else:
         return render_template('register.html', title=u'Register', form=form)
@@ -74,8 +74,6 @@ def unconfirmed():
 @login_required
 def resend_email():
     token = current_user.generate_confirm_token()
-    mail_message(current_user.email, u"confirm","email/confirm",user=current_user,token=token)
-
-    # mail_message(current_user.email, u'Confirm your account', 'confirm', user=current_user, token=token)
+    send_mail(current_user.email, u'Confirm your account', 'confirm', user=current_user, token=token)
     flash(u'A new email has been sent to your email address')
     return redirect(url_for('main.index'))

@@ -28,7 +28,7 @@ basedir = path.abspath(path.dirname(__file__))
 
 def create_app(config_name):
     app = Flask(__name__)
-    app.config.from_object(conifg[config_name])   # 配置都在config.py这个文件中
+    app.config.from_object(conifg[config_name])   # 
     conifg[config_name].init_app(app)
 
     bootstrap.init_app(app)
@@ -40,7 +40,7 @@ def create_app(config_name):
 
     from .main import main as main_blueprint
     from .auth import auth as auth_blueprint
-    from .api_1_0 import api as api_1_0_blueprint    # 注册api蓝图
+    from .api_1_0 import api as api_1_0_blueprint    #
     app.register_blueprint(main_blueprint, static_folder='static', template_folder='templates')
     app.register_blueprint(auth_blueprint, url_prefix='/auth')
     app.register_blueprint(api_1_0_blueprint, url_prefix='/api/v1_0')

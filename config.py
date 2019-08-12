@@ -7,7 +7,7 @@ class Config:
     SSL_DISABLE = False
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     SQLALCHEMY_RECORD_QUERIES = True
-    MAIL_SERVER = 'smtp.163.com'           # Configure the smtp service of the 163 mailbox, first you need to open the smtp service for your mailbox.
+    MAIL_SERVER = 'smtp.gmail.com'           # Configure the smtp service of the 163 mailbox, first you need to open the smtp service for your mailbox.
     MAIL_PORT = 465                       # The port is 465
     MAIL_USE_SSL = True                   # TLS service failed, use SSL
     MAIL_USERNAME = os.environ.get('MAIL_USERNAME')

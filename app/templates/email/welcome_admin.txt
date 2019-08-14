@@ -1,0 +1,10 @@
+Hello {{user.username}},
+Welcome to Sweet Blog!
+As a registered admin, you have access to the following:
+
+a.Add Posts
+b.Delete Comments
+c.Add Admins
+d.Delete Posts
+
+Kindly be generous with that wonderful piece of your mind! Be part of the world's players, remember, 'The World is a Stage!'

@@ -1,0 +1,5 @@
+Dear {{user.username}}
+Welcome to our blog site. We've got you covered,at Sweet you are free to
+speak your fantasies, your pains, and any piece of your mind. Feel free to
+visit the page regularly and contribute in the quest to create a free world, where freedom of speech and expression is not just an illusion,
+but a reality, we value you. In case of any concern, you can reply to this email. 

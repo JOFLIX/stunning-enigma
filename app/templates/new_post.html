@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+
+{% block styles%}
+{{ super() }}
+<link
+  href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Montserrat|Neucha|Noto+Serif+JP|Noto+Serif+KR|Roboto+Mono"
+  rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+  integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+{% endblock %}
+
+{% block content %}
+<br><br><br><br>
+
+<div id="postform">
+  <div class="panel col-md-12">
+    <div class="panel-body">
+      {{wtf.quick_form(post_form)}}
+      {{simplemde.load}}
+    </div>
+  </div>
+</div>
+{% endblock %}

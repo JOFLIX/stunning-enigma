@@ -1,0 +1,84 @@
+<!-- <div class="navbar navbar-inverse" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Blog Yangu</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="{{url_for('auth.register_admin')}}">Add Admin</a></li>
+                    <li><a href="/new_post">New Post</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    {% if current_user.role_id==1%}
+                    <li><a href="/new_post">New Post</a></li>
+                    <li><a href="{{url_for('auth.register_admin')}}">Add Admin</a></li>
+                    {% endif %} {% if current_user.is_authenticated %}
+                    <li>
+                      <a href="#">{{ current_user.username }}</a>
+                    </li>
+                    <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
+                    {% else %}
+                    <li role="separator" class="divider"></li>
+                    <li><a href="{{url_for('auth.login')}}">Sign In</a></li>
+                    {% endif %}
+                  </ul>
+            </div>
+        </div>
+    </div> -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <title></title>
+  </head>
+  <body>
+
+        <!--Navbar -->
+        <nav class="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1">
+          <a class="navbar-brand" href="#">Sweet</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
+            aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent-555">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Home
+                  <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{url_for('auth.register_admin')}}">Add Admin</a>
+              </li>
+              <li class="nav-item">
+                <a href="/new_post">New Post</a>
+              </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.role_id==1%}
+                <!-- <a href="/new_post"> class="btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a> -->
+
+                <li><a href="/new_post">New Post</a></li>
+                <li><a href="{{url_for('auth.register_admin')}}"><i class="fas fa-pen-fancy">Add Admin</i></a></li>
+                {% endif %} {% if current_user.is_authenticated %}
+                <li>
+                  <a href="#">{{ current_user.username }}</a>
+                </li>
+                <li><a href="{{url_for('auth.logout')}}">Sign Out</a></li>
+                {% else %}
+                <li role="separator" class="divider"></li>
+                <li><a href="{{url_for('auth.login')}}">Sign In</a></li>
+                {% endif %}
+              </ul>
+          </div>
+        </nav>
+        <!--/.Navbar -->
+  </body>
+</html>

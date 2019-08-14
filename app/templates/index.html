@@ -1,47 +1,57 @@
-{% extends 'base.html' %} {% import 'bootstrap/wtf.html' as wtf %} {% import 'include/_macros.html' as macros %} {% block title %}Home{% endblock %}
-{% block content %}
+{% extends 'base.html' %}
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block styles%}
 {{ super() }}
-
-<div class="container">
-    <div class="page-header">
-        <h1>
-            {% if current_user.is_authenticated %}
-            Welcome back, {{ current_user.username }}
-            {% else %}
-            Article list
-            {% endif %}
-        </h1>
-    </div>
-</div>
-
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 well bs-component">
-            <div class="post-tabs">
-                <ul class="nav nav-tabs">
-                    <li {% if not show_followed %}class="active" {% endif %}>
-                        <a href="{{ url_for('main.show_all') }}">All articles</a>
-                    </li>
-                    {% if current_user.is_authenticated %}
-                    <li {% if show_followed %}class="active" {% endif %}>
-                        <a href="{{ url_for('main.show_followed') }}">my focus</a>
-                    </li>
-                    {% endif %}
-                </ul>
-            </div>
-
-            {% include 'include/_post.html' %}
-            <nav class="text-center">
-                <ul class="pagination">
-                    {{ macros.pagination_widget(pagination, 'main.index') }}
-                </ul>
-            </nav>
-        </div>
-    </div>
-</div>
-
+<!-- <link
+  href="https://fonts.googleapis.com/css?family=Cabin|Indie+Flower|Montserrat|Neucha|Noto+Serif+JP|Noto+Serif+KR|Roboto+Mono"
+  rel="stylesheet"> -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+  integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Cinzel+Decorative|Marck+Script|Tangerine&display=swap" rel="stylesheet">
 {% endblock %}
-{% block scripts %}
-    {{ super() }}
-    {{ pagedown.include_pagedown() }}
+
+
+
+{% block content %}
+
+  <div class="container jumbotron text-center" style="font-family: 'Cinzel Decorative', cursive;">
+    <p>{{quote.quote}}</p>
+    <p>{{quote.author}}</p>
+</div>
+
+
+<div class="col-md-8">
+  {% for post in posts %}
+
+  <div class="panel">
+    <div class="panel-body responsive">
+      <div class="col-md-8">
+        <div class="text-center">
+          <h1>{{post.title}}</h1>
+          <h4>{{post.posted.strftime('%Y-%m-%d')}}/ <a href="#">{{post.category}}</a></h4>
+        </div>
+        <br>
+
+        <p>{{post.post|truncate(350)}}</p>
+        <div class="text-center">
+          <a href="/post/{{post.id}}">Click To Read / Comment...</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+<div class="col-md-4 ">
+  <div class="panel" id="subcribeform">
+    <div class="panel-body">
+      <h4>Subscribe to our Blog</h4>
+      {{wtf.quick_form(subscriber_form)}}
+      {{simplemde.load}}
+    </div>
+  </div>
+</div>
 {% endblock %}

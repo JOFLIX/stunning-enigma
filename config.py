@@ -4,7 +4,7 @@ class Config:
 
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
-    SECRET_KEY = 'mannuh'
+    SECRET_KEY = 'joflix'
 
     #  email configurations
     MAIL_SERVER = 'smtp.googlemail.com'

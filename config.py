@@ -23,7 +23,7 @@ class Config:
 
 class ProdConfig(Config):
 
-    DEBUG =True
+    pass
 
 class TestConfig(Config):
 

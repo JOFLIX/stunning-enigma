@@ -14,7 +14,12 @@ Joflix Ooko
   * HTML for markup
   * CSS for Cascading
 # Versioning
-  * Due to bugs, this is the second versioning =, an improvement of stunning-enigma v1
+  * Due to bugs, this is the second versioning =, an improvement of stunning-enigma v1.
+  * This app have gone through the third versioning v2
+
+  # Demo of a working page
+
+  <img src="static/automatic.png">
 
  # Development
 

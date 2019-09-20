@@ -1,5 +1,6 @@
 import os
-
+basedir = os.path.abspath(os.path.dirname(__file__))
+# from instance import config
 class Config:
  
     SQLALCHEMY_TRACK_MODIFICATIONS = False
@@ -22,7 +23,8 @@ class Config:
     
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa-school:111@localhost/flaskblog'
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")or\
+    'sqlite:///' + os.path.join(basedir, 'app.db')
     DEBUG =True 
 
 class TestConfig(Config):

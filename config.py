@@ -1,7 +1,7 @@
 import os
 
 class Config:
-
+    # SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://moringa-school:111@localhost/flaskblog'
     SQLALCHEMY_TRACK_MODIFICATIONS = False
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY = 'joflix'
@@ -19,22 +19,22 @@ class Config:
     @staticmethod
     def init_app(app):
         pass
-
+    
 
 class ProdConfig(Config):
-
-    pass
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa-school:111@localhost/flaskblog'
+    DEBUG =True 
 
 class TestConfig(Config):
-
-    DEBUG =True
+    # SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://mannuh:123@localhost/blog_test'
+    DEBUG =True 
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI=os.environ.get("DATABASE_URL")
+    # SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://mannuh:111@localhost/bflaskbloglog'
     DEBUG = True
 
 config_options = {
 'development':DevConfig,
 'production':ProdConfig,
 'test':TestConfig
-}
+} 

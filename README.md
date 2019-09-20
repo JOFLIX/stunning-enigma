@@ -6,7 +6,7 @@ Joflix Ooko
 12/08/2019
 
 # Detailled Description
-***** Language(s) / Technology *** :
+***** Language(s) / Technology ***** :
   * Python3.6 for scripting
   * PSQL for database
   * Quote API for displaying quotes

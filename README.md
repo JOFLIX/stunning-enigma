@@ -74,7 +74,8 @@ Joflix Ooko
     $ python3.6 manage.py runserver
 ```
    ## Known bugs
-          **The server is posing some problems and I will be working on it. So take heart, and be patient, or come and visit again.
+   ***The server is posing some problems and I will be working on it. So take heart, and be patient, or come and visit again.***
+      ***The application have shown some anamolous deprecation and breakdown.THe issue have been temporarily fixed and a solid solution is underway.***
 
    ## Contact:
           You are at liberty to raise an issue incase of anything amiss with the app. You can also followmw, then email me the problem.

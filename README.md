@@ -21,6 +21,9 @@ Joflix Ooko
 
   <img src="static/automatic.png">
 
+  ***Ressponsivity***
+  <img src="static/responsive.jpg">
+
  # Development
 
  ***For developers, the following can be done ***:

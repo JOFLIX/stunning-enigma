@@ -30,7 +30,7 @@ class TestConfig(Config):
     DEBUG =True
 
 class DevConfig(Config):
-    SQLALCHEMY_DATABASE_URI='postgresql+psycopg2://moringa-school:123@localhost/blogs'
+    SQLALCHEMY_DATABASE_URI=os.environ.get("DATABASE_URL")
     DEBUG = True
 
 config_options = {
